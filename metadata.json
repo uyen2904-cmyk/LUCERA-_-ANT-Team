@@ -1,0 +1,6 @@
+{
+  "name": "LUCERA - Nền Tảng Chống Lừa Đảo & Game Cyber Detective",
+  "description": "Smart anti-phishing link and phone scanner with 3D Cyber Detective Headquarters, live client case decoding, Roblox avatar wardrobe, and 6 defensive minigames.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

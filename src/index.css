@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Nunito', 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', 'Be Vietnam Pro', 'Nunito', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Ensure any legacy Fredoka styles gracefully fallback to Be Vietnam Pro and Plus Jakarta Sans */
+[class*="Fredoka"] {
+  font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', 'Nunito', sans-serif !important;
+}
+
+/* Pastel Theme Overrides */
+html.theme-pastel {
+  color-scheme: light;
+}
+
+html.theme-pastel body {
+  background-color: #F8F6FF;
+  color: #2D274A;
+}
+
+/* CRT Green Terminal Scanlines & Glitch for User Protocol */
+.crt-monitor {
+  position: relative;
+  background: radial-gradient(circle at center, #0a2618 0%, #03100a 85%, #010604 100%);
+  border-radius: 28px;
+  box-shadow: 
+    0 0 0 16px #1c1d22,
+    0 0 0 22px #2d3039,
+    0 0 0 25px #121316,
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    inset 0 0 60px rgba(0, 255, 128, 0.25);
+  overflow: hidden;
+}
+
+.crt-monitor.amber-mode {
+  background: radial-gradient(circle at center, #361f00 0%, #170d00 85%, #080400 100%);
+  box-shadow: 
+    0 0 0 16px #241e17,
+    0 0 0 22px #3d3328,
+    0 0 0 25px #16120d,
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    inset 0 0 60px rgba(245, 158, 11, 0.25);
+}
+
+.crt-monitor.cyan-mode {
+  background: radial-gradient(circle at center, #082936 0%, #02121a 85%, #010609 100%);
+  box-shadow: 
+    0 0 0 16px #172024,
+    0 0 0 22px #26363d,
+    0 0 0 25px #0d1416,
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    inset 0 0 60px rgba(6, 182, 212, 0.25);
+}
+
+/* Scanline Overlay */
+.crt-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.35) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* CRT Screen Glow Flicker */
+@keyframes crt-flicker {
+  0% { opacity: 0.98; }
+  50% { opacity: 1; }
+  52% { opacity: 0.95; }
+  54% { opacity: 0.99; }
+  80% { opacity: 0.97; }
+  100% { opacity: 0.99; }
+}
+
+.crt-flicker {
+  animation: crt-flicker 0.12s infinite;
+}
+
+/* Retro Glitch Shake */
+@keyframes glitch-anim {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
+.glitch-active {
+  animation: glitch-anim 0.25s infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 12, 30, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.7);
+}
